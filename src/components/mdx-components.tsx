@@ -1,17 +1,39 @@
 import React from "react";
 import { CopyButton } from "@/components/copy-button";
 
+function slugify(text: string): string {
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]+/g, "")
+        .replace(/--+/g, "-");
+}
+
+function getHeadingText(children: React.ReactNode): string {
+    if (typeof children === "string") return children;
+    if (Array.isArray(children)) return children.map(getHeadingText).join("");
+    if (React.isValidElement(children)) {
+        const el = children as React.ReactElement<{ children?: React.ReactNode }>;
+        if (el.props?.children) return getHeadingText(el.props.children);
+    }
+    return "";
+}
+
 export function getMDXComponents(components: Record<string, React.ComponentType> = {}) {
     return {
         h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-            <h1 className="text-3xl font-bold mb-6 mt-8 gradient-text" {...props} />
+            <h1 className="hidden" aria-hidden="true" {...props} />
         ),
-        h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-            <h2 className="text-2xl font-semibold mb-4 mt-8 text-foreground" {...props} />
-        ),
-        h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-            <h3 className="text-xl font-semibold mb-3 mt-6 text-foreground" {...props} />
-        ),
+        h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
+            const id = slugify(getHeadingText(props.children));
+            return <h2 id={id} className="text-2xl font-semibold mb-4 mt-8 text-foreground scroll-mt-24" {...props} />;
+        },
+        h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
+            const id = slugify(getHeadingText(props.children));
+            return <h3 id={id} className="text-xl font-semibold mb-3 mt-6 text-foreground scroll-mt-24" {...props} />;
+        },
         p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
             <p className="mb-4 leading-relaxed text-muted-foreground" {...props} />
         ),

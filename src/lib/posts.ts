@@ -14,8 +14,43 @@ export interface PostMeta {
     readingTime: string;
 }
 
+export interface Heading {
+    text: string;
+    slug: string;
+    level: 2 | 3;
+}
+
 export interface Post extends PostMeta {
     content: string;
+    headings: Heading[];
+}
+
+function slugify(text: string): string {
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]+/g, "")
+        .replace(/--+/g, "-");
+}
+
+function extractHeadings(content: string): Heading[] {
+    const headingRegex = /^(#{2,3})\s+(.+)$/gm;
+    const headings: Heading[] = [];
+    let match;
+
+    while ((match = headingRegex.exec(content)) !== null) {
+        const level = match[1].length as 2 | 3;
+        const text = match[2].trim().replace(/[`*_~\[\]]/g, "");
+        headings.push({
+            text,
+            slug: slugify(text),
+            level,
+        });
+    }
+
+    return headings;
 }
 
 function calculateReadingTime(content: string): string {
@@ -73,6 +108,7 @@ export function getPostBySlug(slug: string): Post | null {
         coverImage: data.coverImage,
         readingTime: calculateReadingTime(content),
         content,
+        headings: extractHeadings(content),
     };
 }
 
