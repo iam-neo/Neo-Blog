@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
+import type { Pluggable } from "unified";
 import { Calendar, Clock, ArrowLeft, Tag, Github, Twitter } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -59,7 +60,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         keepBackground: false,
                     },
                 ],
-            ] as unknown[],
+            ] as Pluggable[],
         },
     };
 
