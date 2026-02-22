@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Sidebar Navigation -->
     <nav class="sidebar">
@@ -22,6 +24,7 @@
             <li><a href="#writing-posts">Writing Blog Posts</a></li>
             <li><a href="#components">Key Components</a></li>
             <li><a href="#deployment">Deployment</a></li>
+            <li><a href="#updates">Updates & Roadmap</a></li>
         </ul>
     </nav>
 
@@ -29,15 +32,18 @@
     <main class="content">
         <header>
             <h1>Neo-Blog Project Documentation</h1>
-            <p>A comprehensive guide to understanding, modifying, and deploying the Nirmal Magar personal blogger site.</p>
+            <p>A comprehensive guide to understanding, modifying, and deploying the Nirmal Magar personal blogger site.
+            </p>
         </header>
 
         <!-- Introduction -->
         <section id="introduction" class="doc-section">
             <h2>1. Introduction</h2>
             <div class="card">
-                <p>Welcome to the <strong>Neo-Blog</strong> documentation. This project is a premium, beautifully crafted personal portfolio and blog site designed for <strong>Nirmal Magar (@iam-neo)</strong>.</p>
-                <p>It utilizes the modern React ecosystem, prioritizing performance, SEO, and visual aesthetics through glassmorphism, dynamic animations, and dark-mode optimization.</p>
+                <p>Welcome to the <strong>Neo-Blog</strong> documentation. This project is a premium, beautifully
+                    crafted personal portfolio and blog site designed for <strong>Nirmal Magar (@iam-neo)</strong>.</p>
+                <p>It utilizes the modern React ecosystem, prioritizing performance, SEO, and visual aesthetics through
+                    glassmorphism, dynamic animations, and dark-mode optimization.</p>
             </div>
         </section>
 
@@ -46,11 +52,16 @@
             <h2>2. Key Features</h2>
             <div class="card">
                 <ul>
-                    <li><strong>Blazing Fast Performance:</strong> Fully statically generated (SSG) utilizing Next.js App Router.</li>
-                    <li><strong>MDX Blog System:</strong> Write posts in Markdown while seamlessly embedding React components.</li>
-                    <li><strong>Premium UI/UX:</strong> Dark-themed aesthetic featuring glassmorphism, Tailwind CSS styling, and Framer Motion micro-interactions.</li>
-                    <li><strong>SEO Optimized:</strong> Built-in dynamic Open Graph tags, canonical URLs, and structured metadata.</li>
-                    <li><strong>Responsive Layout:</strong> Flawless rendering across Mobile, Tablet, and Desktop resolutions.</li>
+                    <li><strong>Blazing Fast Performance:</strong> Fully statically generated (SSG) utilizing Next.js
+                        App Router.</li>
+                    <li><strong>MDX Blog System:</strong> Write posts in Markdown while seamlessly embedding React
+                        components.</li>
+                    <li><strong>Premium UI/UX:</strong> Dark-themed aesthetic featuring glassmorphism, Tailwind CSS
+                        styling, and Framer Motion micro-interactions.</li>
+                    <li><strong>SEO Optimized:</strong> Built-in dynamic Open Graph tags, canonical URLs, and structured
+                        metadata.</li>
+                    <li><strong>Responsive Layout:</strong> Flawless rendering across Mobile, Tablet, and Desktop
+                        resolutions.</li>
                 </ul>
             </div>
         </section>
@@ -118,7 +129,7 @@
             <h2>5. Writing Blog Posts</h2>
             <div class="card">
                 <p>The blog is powered by local `.mdx` files. To create a new post, simply follow these steps:</p>
-                
+
                 <ol>
                     <li>Navigate to the <code>src/content/posts/</code> directory.</li>
                     <li>Create a new file with a <code>.mdx</code> extension (e.g., <code>my-new-post.mdx</code>).</li>
@@ -136,7 +147,8 @@ tags: ["react", "web-dev", "tips"]
 
 Here is where your Markdown content goes. You can write **bold text**, *italic text*, and use code blocks.</code></pre>
 
-                <p>Once you commit and push this new file to GitHub, the site will automatically rebuild on Netlify and the new post will appear in the <code>/blog</code> feed.</p>
+                <p>Once you commit and push this new file to GitHub, the site will automatically rebuild on Netlify and
+                    the new post will appear in the <code>/blog</code> feed.</p>
             </div>
         </section>
 
@@ -145,9 +157,14 @@ Here is where your Markdown content goes. You can write **bold text**, *italic t
             <h2>6. Key Components</h2>
             <div class="card">
                 <ul>
-                    <li><strong><code>lib/posts.ts</code></strong>: Parses MDX files from the filesystem, extracts the frontmatter using <code>gray-matter</code>, calculates reading time, and handles related posts logic.</li>
-                    <li><strong><code>app/blog/[slug]/page.tsx</code></strong>: Dynamically generates static pages (SSG) for every post utilizing <code>generateStaticParams()</code>.</li>
-                    <li><strong><code>components/mdx-components.tsx</code></strong>: Maps standard HTML tags inside Markdown to custom, styled React components ensuring the blog text matches the site's premium aesthetic.</li>
+                    <li><strong><code>lib/posts.ts</code></strong>: Parses MDX files from the filesystem, extracts the
+                        frontmatter using <code>gray-matter</code>, calculates reading time, and handles related posts
+                        logic.</li>
+                    <li><strong><code>app/blog/[slug]/page.tsx</code></strong>: Dynamically generates static pages (SSG)
+                        for every post utilizing <code>generateStaticParams()</code>.</li>
+                    <li><strong><code>components/mdx-components.tsx</code></strong>: Maps standard HTML tags inside
+                        Markdown to custom, styled React components ensuring the blog text matches the site's premium
+                        aesthetic.</li>
                 </ul>
             </div>
         </section>
@@ -164,10 +181,47 @@ Here is where your Markdown content goes. You can write **bold text**, *italic t
                     <li>Netlify will automatically detect the <code>netlify.toml</code> configuration file.</li>
                     <li>Click <strong>Deploy site</strong>.</li>
                 </ol>
-                <p>The build command executed will be <code>npm run build</code>, and the output directory deployed will be <code>.next</code>.</p>
+                <p>The build command executed will be <code>npm run build</code>, and the output directory deployed will
+                    be <code>.next</code>.</p>
             </div>
         </section>
-        
+
+        <!-- Updates & Roadmap -->
+        <section id="updates" class="doc-section">
+            <h2>8. Current & Future Updates (Roadmap)</h2>
+            <div class="card">
+                <p>This section outlines the current state of <strong>Neo-Blog</strong> and features planned for future
+                    releases. We believe in continuous improvement to deliver the best possible experience.</p>
+
+                <h3>v1.0.0 (Current Version)</h3>
+                <ul>
+                    <li>Initial release with Next.js App Router and static generation (SSG).</li>
+                    <li>Complete premium glassmorphism dark theme using Tailwind CSS and shadcn/ui.</li>
+                    <li>Core pages: Home, Blog, Projects, About.</li>
+                    <li>Git-based MDX authoring workflow with integrated frontmatter parsing.</li>
+                    <li>Framer Motion powered micro-interactions and scroll animations.</li>
+                    <li>Responsive design and foundational SEO optimizations.</li>
+                </ul>
+
+                <h3>Planned Future Updates</h3>
+                <ol>
+                    <li><strong>Comments Registration & Integration:</strong> Integrate a lightweight component (like
+                        Giscus or Disqus) to enable interactive reader feedback on blog posts.</li>
+                    <li><strong>Content Search & Pagination:</strong> Introduce full-text search capability and
+                        pagination for the blog listing page as the number of posts grows.</li>
+                    <li><strong>CMS Integration:</strong> Migrate from a local MDX folder structure to a Headless CMS
+                        (like Sanity or Contentlayer) for easier content management without needing code commits.</li>
+                    <li><strong>Advanced Analytics & Tracking:</strong> Add custom dashboard hooks to monitor post
+                        views, reading duration, and visitor analytics directly within the platform.</li>
+                    <li><strong>Newsletter Subscription:</strong> Implement a form component to capture emails for a
+                        newsletter using an external API service (e.g., Mailchimp, Resend).</li>
+                    <li><strong>Dynamic GitHub Stats:</strong> Instead of static repositories, fetch real-time GitHub
+                        profile data via the GitHub API to display dynamic pinned repositories and contribution graphs.
+                    </li>
+                </ol>
+            </div>
+        </section>
+
         <footer>
             <p>Neo-Blog Documentation &copy; 2026 Nirmal Magar</p>
         </footer>
@@ -175,4 +229,5 @@ Here is where your Markdown content goes. You can write **bold text**, *italic t
 
     <script src="script.js"></script>
 </body>
+
 </html>
