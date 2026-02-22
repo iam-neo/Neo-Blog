@@ -13,7 +13,7 @@ Enter **microservices**. Microservices architecture is a modern approach to soft
 
 The goal of this post is to provide a clear, structured, and visual guide to understanding the microservices ecosystem. We will demystify the core components, explore fundamental communication patterns, and look at data management strategies. 
 
-**[INSERT IMAGE: Monolith vs. Microservices Metaphor - A single, tangled ball of yarn (monolith) next to several smaller, color-coded, organized balls of yarn connected by thin threads (microservices).]**
+![Monolith vs Microservices Metaphor](/images/blog/microservices/monolith.png)
 
 ---
 
@@ -31,7 +31,7 @@ To prevent tight coupling between services, we heavily rely on a **Message Broke
 
 Finally, the golden rule of microservices: **Independent Databases**. Each microservice must own its own data. This ensures true decoupling; if the Inventory database goes down, the User Authentication service remains perfectly operational.
 
-**[INSERT IMAGE: High-Level Microservices Diagram - User requests flow through API Gateway to various "microservice" bubbles, each with its own database. Show Service Discovery, Config Server, Message Broker as supporting elements.]**
+![High-Level Microservices Diagram](/images/blog/microservices/high-level.png)
 
 ---
 
@@ -45,7 +45,7 @@ When you split an application into dozens of pieces, they still need to talk to 
 
 Knowing when to choose which pattern is the hallmark of a senior engineer. Use synchronous communication when you absolutely need an immediate query result (e.g., checking if a user exists). Use asynchronous communication for state changes, background processing, and any workflow that doesn't strictly require the user to wait staring at a loading spinner.
 
-**[INSERT IMAGE: Communication Patterns Diagram - Two panels. One shows services directly calling each other with solid lines (synchronous). The other shows services communicating via a central "message queue" with dashed lines (asynchronous).]**
+![Communication Patterns Diagram](/images/blog/microservices/communication.png)
 
 ---
 
@@ -57,7 +57,7 @@ However, this independence introduces the massive challenge of **Distributed Tra
 
 The industry-standard solution to this is the **Saga Pattern**. A Saga is a sequence of local transactions where each local transaction updates the database inside a single microservice and then publishes an event to trigger the next transaction in the saga. If a step fails, the Saga executes a series of compensating transactions (essentially "undo" operations) to revert the changes made by the previous steps. Sagas can be implemented via **Choreography** (services react to each other's events independently) or **Orchestration** (a central controller service dictates the workflow).
 
-**[INSERT IMAGE: Database per Service Visual - Multiple individual microservice bubbles, each with its own distinct database icon directly underneath, emphasizing independent data stores.]**
+![Database per Service Visual](/images/blog/microservices/database.png)
 
 ---
 
