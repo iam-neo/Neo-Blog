@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo-Blog Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="logo">
+            <h2>&lt;/&gt; Neo-Blog</h2>
+            <p>Documentation</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#introduction" class="active">Introduction</a></li>
+            <li><a href="#features">Key Features</a></li>
+            <li><a href="#tech-stack">Tech Stack</a></li>
+            <li><a href="#project-structure">Project Structure</a></li>
+            <li><a href="#writing-posts">Writing Blog Posts</a></li>
+            <li><a href="#components">Key Components</a></li>
+            <li><a href="#deployment">Deployment</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content">
+        <header>
+            <h1>Neo-Blog Project Documentation</h1>
+            <p>A comprehensive guide to understanding, modifying, and deploying the Nirmal Magar personal blogger site.</p>
+        </header>
+
+        <!-- Introduction -->
+        <section id="introduction" class="doc-section">
+            <h2>1. Introduction</h2>
+            <div class="card">
+                <p>Welcome to the <strong>Neo-Blog</strong> documentation. This project is a premium, beautifully crafted personal portfolio and blog site designed for <strong>Nirmal Magar (@iam-neo)</strong>.</p>
+                <p>It utilizes the modern React ecosystem, prioritizing performance, SEO, and visual aesthetics through glassmorphism, dynamic animations, and dark-mode optimization.</p>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section id="features" class="doc-section">
+            <h2>2. Key Features</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>Blazing Fast Performance:</strong> Fully statically generated (SSG) utilizing Next.js App Router.</li>
+                    <li><strong>MDX Blog System:</strong> Write posts in Markdown while seamlessly embedding React components.</li>
+                    <li><strong>Premium UI/UX:</strong> Dark-themed aesthetic featuring glassmorphism, Tailwind CSS styling, and Framer Motion micro-interactions.</li>
+                    <li><strong>SEO Optimized:</strong> Built-in dynamic Open Graph tags, canonical URLs, and structured metadata.</li>
+                    <li><strong>Responsive Layout:</strong> Flawless rendering across Mobile, Tablet, and Desktop resolutions.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section id="tech-stack" class="doc-section">
+            <h2>3. Tech Stack</h2>
+            <div class="card grid-layout">
+                <div class="tech-item">
+                    <h3>Frontend Framework</h3>
+                    <p>Next.js 16 (App Router) + React 19</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Language</h3>
+                    <p>TypeScript (Strict Mode)</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Styling</h3>
+                    <p>Tailwind CSS v4 + PostCSS</p>
+                </div>
+                <div class="tech-item">
+                    <h3>UI Library</h3>
+                    <p>shadcn/ui (Radix Primitives)</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Animations</h3>
+                    <p>Framer Motion</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Content</h3>
+                    <p>next-mdx-remote + gray-matter</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Structure -->
+        <section id="project-structure" class="doc-section">
+            <h2>4. Project Structure</h2>
+            <div class="card">
+                <pre><code>blog/
+├── public/                 # Static assets (images, icons)
+│   └── images/blog/        # Blog post cover images
+├── src/
+│   ├── app/                # Next.js App Router pages
+│   │   ├── about/          # About page route
+│   │   ├── blog/           # Blog listing & individual post routes
+│   │   ├── projects/       # Custom projects showcase route
+│   │   ├── sections/       # Homepage sectional components
+│   │   ├── globals.css     # Global Tailwind & base styling
+│   │   ├── layout.tsx      # Root layout (Header, Footer, Theme)
+│   │   └── page.tsx        # Homepage
+│   ├── components/         # Reusable React components
+│   │   ├── layout/         # Header, Footer, ThemeProvider
+│   │   ├── ui/             # shadcn/ui raw components
+│   │   └── mdx-components  # Custom renderers for MDX posts
+│   ├── content/posts/      # Actual MDX blog post files live here
+│   └── lib/                # Utility functions (e.g., posts parsing)
+├── netlify.toml            # Netlify Deployment Configuration
+└── next.config.ts          # Next.js build config (Image domains)</code></pre>
+            </div>
+        </section>
+
+        <!-- Writing Posts -->
+        <section id="writing-posts" class="doc-section">
+            <h2>5. Writing Blog Posts</h2>
+            <div class="card">
+                <p>The blog is powered by local `.mdx` files. To create a new post, simply follow these steps:</p>
+                
+                <ol>
+                    <li>Navigate to the <code>src/content/posts/</code> directory.</li>
+                    <li>Create a new file with a <code>.mdx</code> extension (e.g., <code>my-new-post.mdx</code>).</li>
+                    <li>Add the necessary YAML frontmatter at the very top of the file:</li>
+                </ol>
+
+                <pre><code>---
+title: "Your Awesome Blog Post Title"
+date: "2026-02-22"
+excerpt: "A brief, compelling summary of what the post is about."
+tags: ["react", "web-dev", "tips"]
+---
+
+# Hello World
+
+Here is where your Markdown content goes. You can write **bold text**, *italic text*, and use code blocks.</code></pre>
+
+                <p>Once you commit and push this new file to GitHub, the site will automatically rebuild on Netlify and the new post will appear in the <code>/blog</code> feed.</p>
+            </div>
+        </section>
+
+        <!-- Key Components -->
+        <section id="components" class="doc-section">
+            <h2>6. Key Components</h2>
+            <div class="card">
+                <ul>
+                    <li><strong><code>lib/posts.ts</code></strong>: Parses MDX files from the filesystem, extracts the frontmatter using <code>gray-matter</code>, calculates reading time, and handles related posts logic.</li>
+                    <li><strong><code>app/blog/[slug]/page.tsx</code></strong>: Dynamically generates static pages (SSG) for every post utilizing <code>generateStaticParams()</code>.</li>
+                    <li><strong><code>components/mdx-components.tsx</code></strong>: Maps standard HTML tags inside Markdown to custom, styled React components ensuring the blog text matches the site's premium aesthetic.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Deployment -->
+        <section id="deployment" class="doc-section">
+            <h2>7. Deployment</h2>
+            <div class="card">
+                <p>The application is pre-configured for seamless deployment to <strong>Netlify</strong>.</p>
+                <ol>
+                    <li>Push the repository to GitHub.</li>
+                    <li>Log into your Netlify dashboard and click "Add new site" -> "Import an existing project".</li>
+                    <li>Select the GitHub repository.</li>
+                    <li>Netlify will automatically detect the <code>netlify.toml</code> configuration file.</li>
+                    <li>Click <strong>Deploy site</strong>.</li>
+                </ol>
+                <p>The build command executed will be <code>npm run build</code>, and the output directory deployed will be <code>.next</code>.</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Neo-Blog Documentation &copy; 2026 Nirmal Magar</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
