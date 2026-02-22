@@ -32,6 +32,32 @@ Need to know how the project is structured, how to write a new blog post, or how
 
 *(Simply open `/Documentation/index.html` in your browser to view the complete guide, including our future roadmap!)*
 
+## 🗂️ Project Structure
+
+```text
+blog/
+├── Documentation/          # Comprehensive HTML/CSS/JS documentation
+├── public/                 # Static assets (images, icons)
+│   └── images/blog/        # Blog post cover images
+├── src/
+│   ├── app/                # Next.js App Router pages
+│   │   ├── about/          # About page route
+│   │   ├── blog/           # Blog listing & individual post routes
+│   │   ├── projects/       # Custom projects showcase route
+│   │   ├── sections/       # Homepage sectional components
+│   │   ├── globals.css     # Global Tailwind & base styling
+│   │   ├── layout.tsx      # Root layout (Header, Footer, Theme)
+│   │   └── page.tsx        # Homepage
+│   ├── components/         # Reusable React components
+│   │   ├── layout/         # Header, Footer, ThemeProvider
+│   │   ├── ui/             # shadcn/ui raw components
+│   │   └── mdx-components  # Custom renderers for MDX posts
+│   ├── content/posts/      # Actual MDX blog post files live here
+│   └── lib/                # Utility functions (e.g., posts parsing)
+├── netlify.toml            # Netlify Deployment Configuration
+└── next.config.ts          # Next.js build config (Image domains)
+```
+
 ## 🏗️ Local Development
 
 To get a local copy up and running, follow these simple steps:
