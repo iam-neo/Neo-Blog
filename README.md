@@ -2,7 +2,7 @@
 
 Welcome to the repository for **Neo-Blog**, my personal, premium blogger and portfolio site. This application is designed to be highly performant, visually stunning, and SEO-optimized, built with modern web development standards.
 
-![Neo-Blog Banner](public/window.svg) <!-- Replace with actual banner if available -->
+<!-- ![Neo-Blog Banner](public/window.svg) Replace with actual banner if available -->
 
 ## 🚀 Tech Stack
 
