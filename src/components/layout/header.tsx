@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, Sun, Moon, Code2 } from "lucide-react";
+import { Menu, Sun, Moon, Code2, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
@@ -80,6 +80,19 @@ export function Header() {
 
                 {/* Right side actions */}
                 <div className="flex items-center gap-2">
+                    {/* Command Palette Trigger */}
+                    {mounted && (
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => document.dispatchEvent(new CustomEvent('open-command-palette'))}
+                            className="rounded-lg hidden sm:flex text-muted-foreground hover:text-foreground"
+                            title="Search (Cmd+K)"
+                        >
+                            <Search className="w-5 h-5" />
+                        </Button>
+                    )}
+
                     {mounted && (
                         <Button
                             variant="ghost"

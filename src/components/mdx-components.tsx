@@ -1,6 +1,7 @@
 import React from "react";
+import { CopyButton } from "@/components/copy-button";
 
-export function useMDXComponents(components: Record<string, React.ComponentType>) {
+export function getMDXComponents(components: Record<string, React.ComponentType> = {}) {
     return {
         h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
             <h1 className="text-3xl font-bold mb-6 mt-8 gradient-text" {...props} />
@@ -38,11 +39,19 @@ export function useMDXComponents(components: Record<string, React.ComponentType>
             />
         ),
         code: (props: React.HTMLAttributes<HTMLElement>) => (
-            <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground" {...props} />
+            <code className="bg-muted px-1.5 py-0.5 rounded text-[0.875em] font-mono text-foreground" {...props} />
         ),
-        pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
-            <pre className="bg-muted/50 border border-border rounded-xl p-4 overflow-x-auto mb-6 text-sm" {...props} />
-        ),
+        pre: (props: React.HTMLAttributes<HTMLPreElement>) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const children = props.children as any;
+            const textContent = children?.props?.children || "";
+            return (
+                <div className="relative group my-6">
+                    <CopyButton text={typeof textContent === "string" ? textContent : ""} />
+                    <pre className="bg-[#1e1e2e] border border-border/40 rounded-xl p-4 overflow-x-auto text-[0.875em] leading-relaxed shadow-lg mb-0" {...props} />
+                </div>
+            );
+        },
         img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img className="rounded-xl my-6 w-full" alt="" {...props} />

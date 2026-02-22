@@ -11,6 +11,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
     "framer-motion": "^12.34.3",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.575.0",
@@ -20,6 +21,8 @@
     "radix-ui": "^1.4.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "rehype-pretty-code": "^0.14.1",
+    "shiki": "^3.22.0",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {

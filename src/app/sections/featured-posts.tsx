@@ -18,18 +18,19 @@ export function FeaturedPosts() {
                     subtitle="Thoughts, tutorials, and insights from my developer journey"
                 />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
                     {posts.map((post, i) => (
-                        <BlogCard
-                            key={post.slug}
-                            slug={post.slug}
-                            title={post.title}
-                            excerpt={post.excerpt}
-                            date={post.date}
-                            readingTime={post.readingTime}
-                            tags={post.tags}
-                            index={i}
-                        />
+                        <div key={post.slug} className={i === 0 ? "lg:col-span-2 h-full" : "col-span-1 h-full"}>
+                            <BlogCard
+                                slug={post.slug}
+                                title={post.title}
+                                excerpt={post.excerpt}
+                                date={post.date}
+                                readingTime={post.readingTime}
+                                tags={post.tags}
+                                index={i}
+                            />
+                        </div>
                     ))}
                 </div>
 

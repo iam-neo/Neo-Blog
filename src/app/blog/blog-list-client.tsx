@@ -38,10 +38,13 @@ export function BlogListClient({ posts, allTags }: BlogListClientProps) {
                     />
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-2">
+                <div className="flex flex-wrap justify-center gap-3">
                     <Badge
-                        variant={selectedTag === null ? "default" : "secondary"}
-                        className="cursor-pointer px-3 py-1"
+                        variant={selectedTag === null ? "default" : "outline"}
+                        className={`cursor-pointer px-4 py-1.5 rounded-full text-sm font-medium transition-all ${selectedTag === null
+                                ? "bg-gradient-to-r from-cyan-500 to-violet-500 text-white border-transparent shadow-md"
+                                : "hover:border-cyan-500/50 hover:bg-cyan-500/10 text-muted-foreground border-border/50"
+                            }`}
                         onClick={() => setSelectedTag(null)}
                     >
                         All
@@ -49,8 +52,11 @@ export function BlogListClient({ posts, allTags }: BlogListClientProps) {
                     {allTags.map((tag) => (
                         <Badge
                             key={tag}
-                            variant={selectedTag === tag ? "default" : "secondary"}
-                            className="cursor-pointer px-3 py-1"
+                            variant={selectedTag === tag ? "default" : "outline"}
+                            className={`cursor-pointer px-4 py-1.5 rounded-full text-sm font-medium transition-all ${selectedTag === tag
+                                    ? "bg-gradient-to-r from-cyan-500 to-violet-500 text-white border-transparent shadow-md"
+                                    : "hover:border-cyan-500/50 hover:bg-cyan-500/10 text-muted-foreground border-border/50"
+                                }`}
                             onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
                         >
                             {tag}

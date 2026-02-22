@@ -20,11 +20,12 @@ export function BlogCard({ slug, title, excerpt, date, readingTime, tags, index 
         <motion.article
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -8 }}
             viewport={{ once: true, margin: "-30px" }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
         >
             <Link href={`/blog/${slug}`} className="group block">
-                <div className="relative rounded-xl p-6 bg-card border border-border/50 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/5 h-full">
+                <div className="relative rounded-xl p-6 bg-card border border-border/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20 h-full group-hover:bg-muted/10">
                     {/* Gradient accent line */}
                     <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
