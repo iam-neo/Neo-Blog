@@ -1,0 +1,90 @@
+---
+title: "Essential Git Commands Every Developer Should Know"
+date: "2026-02-10"
+excerpt: "A practical guide to the Git commands I use every single day as a developer. From basic commits to advanced rebasing strategies."
+tags: ["git", "tools", "tutorial"]
+---
+
+# Essential Git Commands Every Developer Should Know
+
+Git is one of those tools that you *think* you understand until you encounter a merge conflict at 2 AM. Here's the commands I actually use daily, explained in plain English.
+
+## The Basics
+
+These are the commands you'll use 90% of the time:
+
+```bash
+# Check what's changed
+git status
+
+# Stage everything
+git add .
+
+# Commit with a descriptive message
+git commit -m "feat: add hero section with gradient animation"
+
+# Push to remote
+git push origin main
+```
+
+## Branching Like a Pro
+
+Never work directly on `main`. Create feature branches:
+
+```bash
+# Create and switch to a new branch
+git checkout -b feature/blog-page
+
+# Switch between branches
+git checkout main
+
+# Merge a feature branch
+git merge feature/blog-page
+```
+
+## Undoing Mistakes
+
+We all make mistakes. Git has your back:
+
+```bash
+# Undo the last commit but keep changes
+git reset --soft HEAD~1
+
+# Discard all changes in a file
+git checkout -- filename.js
+
+# Amend the last commit message
+git commit --amend -m "fix: corrected typo in component name"
+```
+
+## My Commit Message Convention
+
+I follow a simple convention that makes the git log actually useful:
+
+| Prefix | Use Case |
+|--------|----------|
+| `feat:` | New feature |
+| `fix:` | Bug fix |
+| `docs:` | Documentation |
+| `style:` | Formatting changes |
+| `refactor:` | Code restructuring |
+| `chore:` | Maintenance tasks |
+
+## Pro Tips
+
+1. **Commit often, push frequently** — Small commits are easier to review and revert
+2. **Write meaningful messages** — "fix stuff" tells you nothing
+3. **Use `.gitignore`** — Never commit `node_modules` or `.env` files
+4. **Learn `git stash`** — It saves your work-in-progress without committing
+
+```bash
+# Stash your current changes
+git stash
+
+# Apply the stashed changes back
+git stash pop
+```
+
+## Conclusion
+
+Git is a superpower once you get comfortable with it. Start with the basics, build muscle memory, and gradually explore more advanced features. Your future self will thank you for those clean commit histories!
