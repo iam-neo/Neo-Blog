@@ -20,59 +20,61 @@ export function FeaturedPosts() {
 
                 {/* Main Editorial Hero Post */}
                 <Link href={`/blog/${heroPost.slug}`} className="block group mb-12 lg:mb-20">
-                    <article className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10 hover:border-cyan-500/30">
-                        {/* Cover Image */}
-                        {heroPost.coverImage && (
-                            <div className="relative w-full aspect-[21/9] overflow-hidden">
-                                <Image
-                                    src={heroPost.coverImage}
-                                    alt={heroPost.title}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                    priority
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
-                            </div>
-                        )}
-
-                        {/* Background subtle gradient for the hero card */}
+                    <article className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10 hover:border-cyan-500/30 p-8 md:p-12 lg:p-16">
+                        {/* Background subtle gradient */}
                         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                        <div className="relative z-10 max-w-3xl p-8 md:p-12 lg:p-16">
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-3 mb-6">
-                                {heroPost.tags.slice(0, 2).map((tag) => (
-                                    <Badge key={tag} variant="secondary" className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border-cyan-500/20 hover:bg-cyan-500/20 transition-colors">
-                                        {tag}
-                                    </Badge>
-                                ))}
+                        <div className="relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+                            {/* Text Content */}
+                            <div className="flex-1 min-w-0">
+                                {/* Tags */}
+                                <div className="flex flex-wrap gap-3 mb-6">
+                                    {heroPost.tags.slice(0, 2).map((tag) => (
+                                        <Badge key={tag} variant="secondary" className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border-cyan-500/20 hover:bg-cyan-500/20 transition-colors">
+                                            {tag}
+                                        </Badge>
+                                    ))}
+                                </div>
+
+                                {/* Title */}
+                                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-[1.1] font-serif tracking-tight text-foreground group-hover:text-cyan-400 transition-colors duration-300">
+                                    {heroPost.title}
+                                </h2>
+
+                                {/* Excerpt */}
+                                <p className="text-lg text-muted-foreground mb-8 leading-relaxed line-clamp-3">
+                                    {heroPost.excerpt}
+                                </p>
+
+                                {/* Meta */}
+                                <div className="flex items-center gap-6 text-sm text-muted-foreground">
+                                    <span className="flex items-center gap-2">
+                                        <Calendar className="w-4 h-4" />
+                                        {new Date(heroPost.date).toLocaleDateString("en-US", {
+                                            month: "long",
+                                            day: "numeric",
+                                            year: "numeric",
+                                        })}
+                                    </span>
+                                    <span className="flex items-center gap-2">
+                                        <Clock className="w-4 h-4" />
+                                        {heroPost.readingTime}
+                                    </span>
+                                </div>
                             </div>
 
-                            {/* Title */}
-                            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-[1.1] font-serif tracking-tight text-foreground group-hover:text-cyan-400 transition-colors duration-300">
-                                {heroPost.title}
-                            </h2>
-
-                            {/* Excerpt */}
-                            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed line-clamp-3">
-                                {heroPost.excerpt}
-                            </p>
-
-                            {/* Meta */}
-                            <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                                <span className="flex items-center gap-2">
-                                    <Calendar className="w-4 h-4" />
-                                    {new Date(heroPost.date).toLocaleDateString("en-US", {
-                                        month: "long",
-                                        day: "numeric",
-                                        year: "numeric",
-                                    })}
-                                </span>
-                                <span className="flex items-center gap-2">
-                                    <Clock className="w-4 h-4" />
-                                    {heroPost.readingTime}
-                                </span>
-                            </div>
+                            {/* Inline Thumbnail */}
+                            {heroPost.coverImage && (
+                                <div className="relative w-full lg:w-80 xl:w-96 flex-shrink-0 aspect-[4/3] rounded-2xl overflow-hidden">
+                                    <Image
+                                        src={heroPost.coverImage}
+                                        alt={heroPost.title}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        priority
+                                    />
+                                </div>
+                            )}
                         </div>
                     </article>
                 </Link>
