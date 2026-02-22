@@ -165,6 +165,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                             date={rp.date}
                                             readingTime={rp.readingTime}
                                             tags={rp.tags}
+                                            coverImage={rp.coverImage}
                                             index={i}
                                         />
                                     ))}

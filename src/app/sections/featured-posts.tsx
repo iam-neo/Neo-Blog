@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -19,11 +20,25 @@ export function FeaturedPosts() {
 
                 {/* Main Editorial Hero Post */}
                 <Link href={`/blog/${heroPost.slug}`} className="block group mb-12 lg:mb-20">
-                    <article className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm p-8 md:p-12 lg:p-16 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10 hover:border-cyan-500/30">
+                    <article className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10 hover:border-cyan-500/30">
+                        {/* Cover Image */}
+                        {heroPost.coverImage && (
+                            <div className="relative w-full aspect-[21/9] overflow-hidden">
+                                <Image
+                                    src={heroPost.coverImage}
+                                    alt={heroPost.title}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    priority
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
+                            </div>
+                        )}
+
                         {/* Background subtle gradient for the hero card */}
                         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                        <div className="relative z-10 max-w-3xl">
+                        <div className="relative z-10 max-w-3xl p-8 md:p-12 lg:p-16">
                             {/* Tags */}
                             <div className="flex flex-wrap gap-3 mb-6">
                                 {heroPost.tags.slice(0, 2).map((tag) => (
@@ -74,6 +89,7 @@ export function FeaturedPosts() {
                                     date={post.date}
                                     readingTime={post.readingTime}
                                     tags={post.tags}
+                                    coverImage={post.coverImage}
                                     index={i + 1}
                                 />
                             </div>

@@ -42,8 +42,8 @@ export function BlogListClient({ posts, allTags }: BlogListClientProps) {
                     <Badge
                         variant={selectedTag === null ? "default" : "outline"}
                         className={`cursor-pointer px-4 py-1.5 rounded-full text-sm font-medium transition-all ${selectedTag === null
-                                ? "bg-gradient-to-r from-cyan-500 to-violet-500 text-white border-transparent shadow-md"
-                                : "hover:border-cyan-500/50 hover:bg-cyan-500/10 text-muted-foreground border-border/50"
+                            ? "bg-gradient-to-r from-cyan-500 to-violet-500 text-white border-transparent shadow-md"
+                            : "hover:border-cyan-500/50 hover:bg-cyan-500/10 text-muted-foreground border-border/50"
                             }`}
                         onClick={() => setSelectedTag(null)}
                     >
@@ -54,8 +54,8 @@ export function BlogListClient({ posts, allTags }: BlogListClientProps) {
                             key={tag}
                             variant={selectedTag === tag ? "default" : "outline"}
                             className={`cursor-pointer px-4 py-1.5 rounded-full text-sm font-medium transition-all ${selectedTag === tag
-                                    ? "bg-gradient-to-r from-cyan-500 to-violet-500 text-white border-transparent shadow-md"
-                                    : "hover:border-cyan-500/50 hover:bg-cyan-500/10 text-muted-foreground border-border/50"
+                                ? "bg-gradient-to-r from-cyan-500 to-violet-500 text-white border-transparent shadow-md"
+                                : "hover:border-cyan-500/50 hover:bg-cyan-500/10 text-muted-foreground border-border/50"
                                 }`}
                             onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
                         >
@@ -77,6 +77,7 @@ export function BlogListClient({ posts, allTags }: BlogListClientProps) {
                             date={post.date}
                             readingTime={post.readingTime}
                             tags={post.tags}
+                            coverImage={post.coverImage}
                             index={i}
                         />
                     ))}
