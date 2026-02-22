@@ -2,7 +2,7 @@
 
 Welcome to the repository for **Neo-Blog**, my personal, premium blogger and portfolio site. This application is designed to be highly performant, visually stunning, and SEO-optimized, built with modern web development standards.
 
-![Neo-Blog Banner](public/window.svg) <!-- Replace with actual banner if available -->
+<!-- ![Neo-Blog Banner](public/window.svg) Replace with actual banner if available -->
 
 ## 🚀 Tech Stack
 
@@ -20,7 +20,6 @@ Welcome to the repository for **Neo-Blog**, my personal, premium blogger and por
 - **Premium Aesthetics:** Clean, modern UI featuring a custom dark theme, glassmorphism effects, and vibrant gradient accents.
 - **Interactive Animations:** Smooth micro-animations and scroll effects powered by Framer Motion.
 - **Markdown (MDX) Powered Blog:** Write rich content effortlessly while embedding custom React components directly into blog posts.
-- **Project Showcase:** Dedicated section highlighting GitHub repositories with dynamic statistics.
 - **SEO Optimized:** Structured metadata, Open Graph tags, and semantic HTML for prominent search engine visibility.
 - **Responsive Design:** Seamless experience across mobile, tablet, and desktop devices.
 
@@ -43,7 +42,6 @@ blog/
 │   ├── app/                # Next.js App Router pages
 │   │   ├── about/          # About page route
 │   │   ├── blog/           # Blog listing & individual post routes
-│   │   ├── projects/       # Custom projects showcase route
 │   │   ├── sections/       # Homepage sectional components
 │   │   ├── globals.css     # Global Tailwind & base styling
 │   │   ├── layout.tsx      # Root layout (Header, Footer, Theme)
