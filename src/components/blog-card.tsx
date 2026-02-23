@@ -31,9 +31,9 @@ export function BlogCard({ slug, title, excerpt, date, readingTime, tags, coverI
                     {/* Gradient accent line */}
                     <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                    <div className="flex gap-5 items-start">
-                        {/* Text Content */}
-                        <div className="flex-1 min-w-0">
+                    <div className="flex gap-5 items-start h-full">
+                        {/* Content & Floating Thumbnail */}
+                        <div className="flex-1 min-w-0 h-full flex flex-col">
                             {/* Tags */}
                             <div className="flex flex-wrap gap-2 mb-3">
                                 {tags.slice(0, 3).map((tag) => (
@@ -47,18 +47,32 @@ export function BlogCard({ slug, title, excerpt, date, readingTime, tags, coverI
                                 ))}
                             </div>
 
-                            {/* Title */}
-                            <h3 className="text-xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors leading-tight">
-                                {title}
-                            </h3>
+                            <div className="flex-1">
+                                {/* Thumbnail floating right inside the text area */}
+                                {coverImage && (
+                                    <div className="float-right ml-4 mb-2 w-24 h-24 sm:w-28 sm:h-28 relative rounded-lg overflow-hidden flex-shrink-0">
+                                        <Image
+                                            src={coverImage}
+                                            alt={title}
+                                            fill
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        />
+                                    </div>
+                                )}
 
-                            {/* Excerpt */}
-                            <p className="text-muted-foreground text-sm mb-4 line-clamp-2 leading-relaxed">
-                                {excerpt}
-                            </p>
+                                {/* Title */}
+                                <h3 className="text-xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors leading-tight">
+                                    {title}
+                                </h3>
+
+                                {/* Excerpt */}
+                                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                                    {excerpt}
+                                </p>
+                            </div>
 
                             {/* Meta & CTA */}
-                            <div className="flex items-center justify-between text-xs text-muted-foreground">
+                            <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto clear-both pt-2">
                                 <div className="flex items-center gap-3">
                                     <span className="flex items-center gap-1">
                                         <Calendar className="w-3 h-3" />
@@ -74,18 +88,6 @@ export function BlogCard({ slug, title, excerpt, date, readingTime, tags, coverI
                                 </span>
                             </div>
                         </div>
-
-                        {/* Inline Thumbnail */}
-                        {coverImage && (
-                            <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex-shrink-0 rounded-xl overflow-hidden">
-                                <Image
-                                    src={coverImage}
-                                    alt={title}
-                                    fill
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
-                            </div>
-                        )}
                     </div>
                 </div>
             </Link>
