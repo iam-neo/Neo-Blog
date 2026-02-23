@@ -16,6 +16,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/section-heading";
 import { Separator } from "@/components/ui/separator";
+import { InteractivePathSelector } from "@/components/interactive-path-selector";
+import { TechStackExplodedView } from "@/components/tech-stack-exploded-view";
 
 const blogTopics = [
     {
@@ -121,24 +123,40 @@ export default function AboutPage() {
 
                 <Separator className="mb-16 bg-border/50" />
 
-                {/* Start Reading / Recommended (CTA) */}
+                {/* Choose Your Adventure (Start Here) */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.5 }}
-                    className="mb-16 bg-gradient-to-br from-cyan-500/10 via-background to-violet-500/10 border border-border/50 rounded-3xl p-8 sm:p-12 text-center"
+                    className="mb-16"
                 >
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">Ready to dive in?</h3>
-                    <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                        Explore the latest articles, tutorials, and insights. I try to publish new, high-quality content regularly.
-                    </p>
-                    <Link href="/blog">
-                        <button className="inline-flex items-center gap-2 bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-muted-foreground transition-all hover:scale-105 active:scale-95 group">
-                            Read the Latest Posts
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </Link>
+                    <div className="text-center sm:text-left mb-10">
+                        <Badge variant="outline" className="mb-4 border-cyan-500/30 text-cyan-400 bg-cyan-500/10">Start Here</Badge>
+                        <h3 className="text-2xl font-bold">Choose Your Adventure</h3>
+                        <p className="text-muted-foreground mt-2">Not sure where to begin? Select a path below for curated reading.</p>
+                    </div>
+
+                    <InteractivePathSelector />
+                </motion.div>
+
+                <Separator className="mb-16 bg-border/50" />
+
+                {/* Anatomy of this Blog (Tech Stack) */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-16"
+                >
+                    <div className="text-center sm:text-left mb-10">
+                        <Badge variant="outline" className="mb-4 border-violet-500/30 text-violet-400 bg-violet-500/10">Behind the Scenes</Badge>
+                        <h3 className="text-2xl font-bold">How It's Built</h3>
+                        <p className="text-muted-foreground mt-2">The architecture powering this digital garden.</p>
+                    </div>
+
+                    <TechStackExplodedView />
                 </motion.div>
 
                 <Separator className="mb-16 bg-border/50" />
