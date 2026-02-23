@@ -12,7 +12,8 @@ import { BlogCard } from "@/components/blog-card";
 import { ReadingProgress } from "@/components/reading-progress";
 import { getMDXComponents } from "@/components/mdx-components";
 import { TableOfContents } from "@/components/table-of-contents";
-import { getPostBySlug, getAllPosts, getRelatedPosts } from "@/lib/posts";
+import { SeriesNavigation } from "@/components/series-navigation";
+import { getPostBySlug, getAllPosts, getRelatedPosts, getSeries } from "@/lib/posts";
 
 interface BlogPostPageProps {
     params: Promise<{ slug: string }>;
@@ -50,6 +51,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     }
 
     const relatedPosts = getRelatedPosts(post.slug, post.tags, 3);
+    const seriesPosts = post.series ? getSeries(post.series) : [];
 
     const mdxOptions = {
         mdxOptions: {
@@ -139,6 +141,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                 </div>
                             )}
 
+                            {/* Series Navigation (Top) */}
+                            {post.series && seriesPosts.length > 0 && (
+                                <SeriesNavigation
+                                    seriesName={post.series}
+                                    seriesPosts={seriesPosts}
+                                    currentSlug={post.slug}
+                                />
+                            )}
+
                             {/* Content */}
                             <div className="prose-custom">
                                 <MDXRemote
@@ -147,6 +158,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                     components={getMDXComponents({})}
                                 />
                             </div>
+
+                            {/* Series Navigation (Bottom) */}
+                            {post.series && seriesPosts.length > 0 && (
+                                <SeriesNavigation
+                                    seriesName={post.series}
+                                    seriesPosts={seriesPosts}
+                                    currentSlug={post.slug}
+                                />
+                            )}
 
                             <Separator className="my-12 bg-border/50" />
 
