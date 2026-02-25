@@ -8,7 +8,7 @@ import { TerminalWidget } from "@/components/terminal-widget";
 
 export function HeroSection() {
     return (
-        <section className="relative w-full pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden flex flex-col items-center justify-center text-center px-4">
+        <section className="relative w-full pt-16 pb-20 lg:pt-24 lg:pb-32 overflow-hidden flex flex-col items-center justify-center text-center px-4">
             {/* Background elements */}
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/10 via-background to-background"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-violet-600/10 blur-[120px] rounded-full pointer-events-none"></div>
