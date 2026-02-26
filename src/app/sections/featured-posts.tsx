@@ -5,8 +5,8 @@ import { BlogCard } from "@/components/blog-card";
 import { getAllPosts } from "@/lib/posts";
 
 export function FeaturedPosts() {
-    // Get top 4 posts for the editorial grid
-    const posts = getAllPosts().slice(0, 4);
+    // Get top 5 posts for the editorial grid (1 hero + 4 secondary)
+    const posts = getAllPosts().slice(0, 5);
 
     if (posts.length === 0) return null;
 
