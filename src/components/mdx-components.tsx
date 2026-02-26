@@ -78,7 +78,7 @@ export function getMDXComponents(components: Record<string, React.ComponentType>
         },
         img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="rounded-xl my-6 w-full" alt="" {...props} />
+            <img className="rounded-xl my-8 mx-auto w-full max-w-3xl max-h-[500px] object-contain bg-muted/5 shadow-sm" alt="" {...props} />
         ),
         hr: () => <hr className="border-border my-8" />,
         table: (props: React.HTMLAttributes<HTMLTableElement>) => (
