@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import { DM_Sans, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Geist, DM_Sans, Geist_Mono, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { CommandPalette } from "@/components/command-palette";
 import { getAllPosts } from "@/lib/posts";
 import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -57,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" id="top" suppressHydrationWarning>
       <body
-        className={`${dmSans.variable} ${geistMono.variable} ${playfair.variable} antialiased min-h-screen`}
+        className={`${dmSans.variable} ${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased min-h-screen`}
       >
         <ThemeProvider
           attribute="class"

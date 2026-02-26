@@ -353,3 +353,22 @@ html {
 .editorial-image-wrapper:hover img {
   transform: scale(1.03);
 }
+/* Legacy Hero Section Colors */
+.hero-original {
+  font-family: var(--font-geist-sans);
+  --background: oklch(0.985 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --secondary: oklch(0.967 0.001 286.375);
+  --border: oklch(0.92 0.004 286.32);
+}
+
+.dark .hero-original {
+  --background: oklch(0.09 0.005 285.823);
+  --foreground: oklch(0.95 0.002 286);
+  --muted: oklch(0.2 0.006 286.033);
+  --muted-foreground: oklch(0.65 0.015 286.067);
+  --secondary: oklch(0.2 0.006 286.033);
+  --border: oklch(1 0 0 / 8%);
+}
