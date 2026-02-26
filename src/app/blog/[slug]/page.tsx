@@ -6,7 +6,6 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import type { Pluggable } from "unified";
 import { Calendar, Clock, ArrowLeft, Tag, Github, Twitter, List } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { BlogCard } from "@/components/blog-card";
 import { ReadingProgress } from "@/components/reading-progress";
@@ -89,17 +88,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             {/* Header */}
                             <header className="mb-10">
                                 {/* Tags */}
-                                <div className="flex flex-wrap gap-2 mb-4">
+                                <div className="flex flex-wrap gap-3 mb-4">
                                     {post.tags.map((tag) => (
-                                        <Badge key={tag} variant="secondary" className="text-xs">
-                                            <Tag className="w-3 h-3 mr-1" />
+                                        <span
+                                            key={tag}
+                                            className="inline-flex items-center gap-1 text-xs font-medium tracking-wider uppercase"
+                                            style={{ color: 'var(--editorial-accent)' }}
+                                        >
+                                            <Tag className="w-3 h-3" />
                                             {tag}
-                                        </Badge>
+                                        </span>
                                     ))}
                                 </div>
 
                                 {/* Title */}
-                                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+                                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight font-serif">
                                     {post.title}
                                 </h1>
 
@@ -125,10 +128,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             {/* Mobile Table of Contents */}
                             {post.headings.length > 0 && (
                                 <div className="xl:hidden mb-10">
-                                    <details className="bg-muted/30 border border-border/50 rounded-xl p-4 group">
+                                    <details className="bg-muted/30 border border-border rounded-xl p-4 group">
                                         <summary className="font-semibold cursor-pointer text-foreground flex items-center justify-between">
                                             <div className="flex items-center gap-2">
-                                                <List className="w-4 h-4 text-cyan-400" />
+                                                <List className="w-4 h-4" style={{ color: 'var(--editorial-accent)' }} />
                                                 <span>Table of Contents</span>
                                             </div>
                                             <span className="text-xs text-muted-foreground group-open:hidden">Tap to expand</span>
@@ -171,12 +174,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             <Separator className="my-12 bg-border/50" />
 
                             {/* About the Author Snippet */}
-                            <section className="bg-muted/30 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start border border-border/50">
+                            <section className="bg-muted/20 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start border border-border/50">
                                 <Image
                                     src="https://avatars.githubusercontent.com/u/45136482?v=4"
                                     alt="Nirmal Magar"
-                                    width={100}
-                                    height={100}
+                                    width={80}
+                                    height={80}
                                     className="rounded-full flex-shrink-0"
                                 />
                                 <div className="text-center sm:text-left">
@@ -186,10 +189,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                         I build things, break them, and write about what I learn along the way.
                                     </p>
                                     <div className="flex items-center justify-center sm:justify-start gap-3">
-                                        <a href="https://github.com/iam-neo" target="_blank" rel="noopener noreferrer" className="p-2 bg-background border border-border rounded-lg hover:bg-muted transition-colors">
+                                        <a href="https://github.com/iam-neo" target="_blank" rel="noopener noreferrer" className="p-2 bg-background border border-border rounded-full hover:bg-muted transition-colors">
                                             <Github className="w-4 h-4 text-foreground" />
                                         </a>
-                                        <a href="https://twitter.com/iam_neo" target="_blank" rel="noopener noreferrer" className="p-2 bg-background border border-border rounded-lg hover:bg-muted transition-colors text-cyan-500 hover:text-cyan-400">
+                                        <a href="https://twitter.com/iam_neo" target="_blank" rel="noopener noreferrer" className="p-2 bg-background border border-border rounded-full hover:bg-muted transition-colors" style={{ color: 'var(--editorial-accent)' }}>
                                             <Twitter className="w-4 h-4" />
                                         </a>
                                     </div>
@@ -203,7 +206,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                 relatedPosts.length > 0 && (
                                     <section>
                                         <h2 className="text-3xl font-bold mb-8 font-serif">Related Posts</h2>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                             {relatedPosts.map((rp, i) => (
                                                 <BlogCard
                                                     key={rp.slug}

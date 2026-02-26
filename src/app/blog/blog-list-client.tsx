@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Search } from "lucide-react";
 import { BlogCard } from "@/components/blog-card";
-import { Badge } from "@/components/ui/badge";
 import type { PostMeta } from "@/lib/posts";
 
 interface BlogListClientProps {
@@ -26,7 +25,7 @@ export function BlogListClient({ posts, allTags }: BlogListClientProps) {
     return (
         <>
             {/* Search & Filters */}
-            <div className="mb-10 space-y-4">
+            <div className="mb-12 space-y-6">
                 <div className="relative max-w-md mx-auto">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <input
@@ -34,40 +33,38 @@ export function BlogListClient({ posts, allTags }: BlogListClientProps) {
                         placeholder="Search posts..."
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-card border border-border/50 text-sm focus:outline-none focus:border-cyan-500/50 transition-colors placeholder:text-muted-foreground"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl bg-card border border-border text-sm focus:outline-none focus:border-editorial-accent/50 transition-colors placeholder:text-muted-foreground"
                     />
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-3">
-                    <Badge
-                        variant={selectedTag === null ? "default" : "outline"}
-                        className={`cursor-pointer px-4 py-1.5 rounded-full text-sm font-medium transition-all ${selectedTag === null
-                            ? "bg-gradient-to-r from-cyan-500 to-violet-500 text-white border-transparent shadow-md"
-                            : "hover:border-cyan-500/50 hover:bg-cyan-500/10 text-muted-foreground border-border/50"
+                <div className="flex flex-wrap justify-center gap-2">
+                    <button
+                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all border ${selectedTag === null
+                            ? "bg-foreground text-background border-foreground"
+                            : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
                             }`}
                         onClick={() => setSelectedTag(null)}
                     >
                         All
-                    </Badge>
+                    </button>
                     {allTags.map((tag) => (
-                        <Badge
+                        <button
                             key={tag}
-                            variant={selectedTag === tag ? "default" : "outline"}
-                            className={`cursor-pointer px-4 py-1.5 rounded-full text-sm font-medium transition-all ${selectedTag === tag
-                                ? "bg-gradient-to-r from-cyan-500 to-violet-500 text-white border-transparent shadow-md"
-                                : "hover:border-cyan-500/50 hover:bg-cyan-500/10 text-muted-foreground border-border/50"
+                            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all border ${selectedTag === tag
+                                ? "bg-foreground text-background border-foreground"
+                                : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
                                 }`}
                             onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
                         >
                             {tag}
-                        </Badge>
+                        </button>
                     ))}
                 </div>
             </div>
 
             {/* Posts Grid */}
             {filtered.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
                     {filtered.map((post, i) => (
                         <BlogCard
                             key={post.slug}
@@ -83,7 +80,7 @@ export function BlogListClient({ posts, allTags }: BlogListClientProps) {
                     ))}
                 </div>
             ) : (
-                <div className="text-center py-16">
+                <div className="text-center py-20">
                     <p className="text-muted-foreground text-lg mb-2">No posts found</p>
                     <p className="text-muted-foreground text-sm">
                         Try adjusting your search or filter
