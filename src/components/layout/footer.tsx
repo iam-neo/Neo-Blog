@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Github, Mail, Globe, Heart, ArrowUp } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
 
 const socialLinks = [
     { href: "https://github.com/iam-neo", icon: Github, label: "GitHub" },
@@ -17,15 +16,15 @@ const quickLinks = [
 export function Footer() {
     return (
         <footer className="relative mt-20">
-            {/* Gradient top border */}
-            <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+            {/* Subtle top border */}
+            <div className="h-px bg-border" />
 
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {/* Brand */}
                     <div className="space-y-4">
-                        <h3 className="text-xl font-bold gradient-text">Neo Blog</h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
+                        <h3 className="text-xl font-bold font-serif">Neo Blog</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
                             Messing around internet and web. Sharing thoughts, code snippets,
                             and adventures in the world of web development.
                         </p>
@@ -61,7 +60,7 @@ export function Footer() {
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-10 h-10 rounded-lg bg-muted hover:bg-muted/80 flex items-center justify-center text-muted-foreground hover:text-foreground transition-all hover:scale-110"
+                                    className="w-10 h-10 rounded-full bg-muted hover:bg-muted/80 flex items-center justify-center text-muted-foreground hover:text-foreground transition-all"
                                     aria-label={social.label}
                                 >
                                     <social.icon className="w-4 h-4" />
@@ -71,21 +70,22 @@ export function Footer() {
                     </div>
                 </div>
 
-                <Separator className="my-8 bg-border/50" />
-
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-                    <p className="flex items-center gap-1">
-                        © {new Date().getFullYear()} Nirmal Magar. Built with
-                        <Heart className="w-3 h-3 text-red-400 fill-red-400 mx-1" />
-                        and Next.js
-                    </p>
-                    <a
-                        href="#top"
-                        className="flex items-center gap-1 hover:text-foreground transition-colors"
-                    >
-                        Back to top
-                        <ArrowUp className="w-3 h-3" />
-                    </a>
+                {/* Bottom bar */}
+                <div className="mt-12 pt-8 border-t border-border/50">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+                        <p className="flex items-center gap-1">
+                            © {new Date().getFullYear()} Nirmal Magar. Built with
+                            <Heart className="w-3 h-3 text-editorial-accent fill-editorial-accent mx-1" />
+                            and Next.js
+                        </p>
+                        <a
+                            href="#top"
+                            className="flex items-center gap-1 hover:text-foreground transition-colors"
+                        >
+                            Back to top
+                            <ArrowUp className="w-3 h-3" />
+                        </a>
+                    </div>
                 </div>
             </div>
         </footer>

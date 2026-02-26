@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 
 interface BlogCardProps {
     slug: string;
@@ -20,74 +19,58 @@ interface BlogCardProps {
 export function BlogCard({ slug, title, excerpt, date, readingTime, tags, coverImage, index = 0 }: BlogCardProps) {
     return (
         <motion.article
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -8 }}
             viewport={{ once: true, margin: "-30px" }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
+            transition={{ duration: 0.5, delay: index * 0.08 }}
         >
             <Link href={`/blog/${slug}`} className="group block h-full">
-                <div className="relative rounded-xl p-6 bg-card border border-border/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20 h-full group-hover:bg-muted/10">
-                    {/* Gradient accent line */}
-                    <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                    <div className="flex gap-5 items-start h-full">
-                        {/* Content & Floating Thumbnail */}
-                        <div className="flex-1 min-w-0 h-full flex flex-col">
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-2 mb-3">
-                                {tags.slice(0, 3).map((tag) => (
-                                    <Badge
-                                        key={tag}
-                                        variant="secondary"
-                                        className="text-xs font-medium bg-muted/80 hover:bg-muted"
-                                    >
-                                        {tag}
-                                    </Badge>
-                                ))}
-                            </div>
-
-                            <div className="flex-1">
-                                {/* Thumbnail floating right inside the text area */}
-                                {coverImage && (
-                                    <div className="float-right ml-4 mb-2 w-24 h-24 sm:w-28 sm:h-28 relative rounded-lg overflow-hidden flex-shrink-0">
-                                        <Image
-                                            src={coverImage}
-                                            alt={title}
-                                            fill
-                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        />
-                                    </div>
-                                )}
-
-                                {/* Title */}
-                                <h3 className="text-xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors leading-tight">
-                                    {title}
-                                </h3>
-
-                                {/* Excerpt */}
-                                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                                    {excerpt}
-                                </p>
-                            </div>
-
-                            {/* Meta & CTA */}
-                            <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto clear-both pt-2">
-                                <div className="flex items-center gap-3">
-                                    <span className="flex items-center gap-1">
-                                        <Calendar className="w-3 h-3" />
-                                        {date}
-                                    </span>
-                                    <span className="flex items-center gap-1">
-                                        <Clock className="w-3 h-3" />
-                                        {readingTime}
-                                    </span>
-                                </div>
-                                <span className="flex items-center gap-1 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                                    Read <ArrowRight className="w-3 h-3" />
-                                </span>
-                            </div>
+                <div className="h-full flex flex-col">
+                    {/* Image */}
+                    {coverImage && (
+                        <div className="relative w-full aspect-[16/10] overflow-hidden rounded-xl mb-5">
+                            <Image
+                                src={coverImage}
+                                alt={title}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
                         </div>
+                    )}
+
+                    {/* Category tag */}
+                    {tags.length > 0 && (
+                        <span
+                            className="inline-block text-xs font-medium tracking-wider uppercase mb-3 w-fit"
+                            style={{ color: 'var(--editorial-accent)' }}
+                        >
+                            {tags[0]}
+                        </span>
+                    )}
+
+                    {/* Title */}
+                    <h3 className="text-xl font-semibold font-serif mb-3 leading-snug group-hover:text-editorial-accent transition-colors duration-300">
+                        {title}
+                    </h3>
+
+                    {/* Excerpt */}
+                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2 flex-1">
+                        {excerpt}
+                    </p>
+
+                    {/* Meta */}
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground pt-3 border-t border-border/50">
+                        <span className="flex items-center gap-1.5">
+                            <Calendar className="w-3.5 h-3.5" />
+                            {date}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                            <Clock className="w-3.5 h-3.5" />
+                            {readingTime}
+                        </span>
+                        <span className="ml-auto flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: 'var(--editorial-accent)' }}>
+                            Read <ArrowRight className="w-3 h-3" />
+                        </span>
                     </div>
                 </div>
             </Link>
