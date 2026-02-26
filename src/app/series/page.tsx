@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { BookMarked, Layers, ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
-import { Badge } from "@/components/ui/badge";
 import { getAllSeries } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -24,9 +23,9 @@ export default function SeriesIndexPage() {
                 </div>
 
                 {allSeries.length === 0 ? (
-                    <div className="text-center py-20 bg-muted/20 rounded-3xl border border-border/50">
+                    <div className="text-center py-20 bg-muted/20 rounded-2xl border border-border/50">
                         <Layers className="w-12 h-12 mx-auto text-muted-foreground mb-4 opacity-50" />
-                        <h3 className="text-xl font-semibold mb-2">No series available yet</h3>
+                        <h3 className="text-xl font-semibold mb-2 font-serif">No series available yet</h3>
                         <p className="text-muted-foreground">Check back soon for structured tutorials.</p>
                     </div>
                 ) : (
@@ -37,7 +36,7 @@ export default function SeriesIndexPage() {
                                 href={`/series/${series.slug}`}
                                 className="group block"
                             >
-                                <div className="bg-card border border-border/50 hover:border-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/10 rounded-3xl p-6 sm:p-8 transition-all duration-300 relative overflow-hidden">
+                                <div className="bg-card border border-border/50 hover:border-foreground/20 hover:shadow-lg rounded-2xl p-6 sm:p-8 transition-all duration-300 relative overflow-hidden">
                                     <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500 pointer-events-none">
                                         <BookMarked className="w-32 h-32" />
                                     </div>
@@ -45,14 +44,14 @@ export default function SeriesIndexPage() {
                                     <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between relative z-10">
                                         <div>
                                             <div className="flex items-center gap-3 mb-3">
-                                                <Badge variant="secondary" className="bg-cyan-500/10 text-cyan-400 border-cyan-500/20">
+                                                <span className="text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full bg-muted text-foreground">
                                                     {series.totalParts} Parts
-                                                </Badge>
+                                                </span>
                                                 <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
                                                     Structured Guide
                                                 </span>
                                             </div>
-                                            <h2 className="text-2xl sm:text-3xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">
+                                            <h2 className="text-2xl sm:text-3xl font-bold mb-3 font-serif group-hover:text-editorial-accent transition-colors">
                                                 {series.name}
                                             </h2>
                                             <p className="text-muted-foreground line-clamp-2 max-w-2xl">
@@ -61,7 +60,7 @@ export default function SeriesIndexPage() {
                                         </div>
 
                                         <div className="shrink-0">
-                                            <div className="w-12 h-12 rounded-full bg-muted/50 group-hover:bg-cyan-500 flex items-center justify-center transition-colors">
+                                            <div className="w-12 h-12 rounded-full bg-muted/50 group-hover:bg-foreground flex items-center justify-center transition-colors">
                                                 <ArrowRight className="w-5 h-5 text-foreground group-hover:text-background group-hover:translate-x-1 transition-all" />
                                             </div>
                                         </div>
@@ -73,12 +72,12 @@ export default function SeriesIndexPage() {
                                         <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
                                             {series.posts.slice(0, 3).map((post, i) => (
                                                 <li key={post.slug} className="flex items-center gap-2">
-                                                    <span className="text-cyan-500/50">{i + 1}.</span>
+                                                    <span className="text-muted-foreground/50">{i + 1}.</span>
                                                     <span className="truncate max-w-[200px]">{post.title}</span>
                                                 </li>
                                             ))}
                                             {series.totalParts > 3 && (
-                                                <li className="text-cyan-400/70">+{series.totalParts - 3} more...</li>
+                                                <li className="text-muted-foreground/70">+{series.totalParts - 3} more...</li>
                                             )}
                                         </ul>
                                     </div>
