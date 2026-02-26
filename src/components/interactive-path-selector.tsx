@@ -30,6 +30,7 @@ const paths: Record<PathType, PathConfig> = {
         bg: "bg-blue-400/10",
         description: "Focus on building beautiful, responsive, and accessible user interfaces.",
         articles: [
+            { title: "How to Write Your First React App (Complete Beginner Guide)", url: "/blog/how-to-write-your-first-react-app", readTime: "5 min" },
             { title: "Building Modern UIs with React and Tailwind CSS", url: "/blog/building-modern-uis-with-react-and-tailwind", readTime: "4 min" }
         ]
     },
@@ -52,6 +53,7 @@ const paths: Record<PathType, PathConfig> = {
         bg: "bg-violet-400/10",
         description: "The core tools and concepts every developer needs to master.",
         articles: [
+            { title: "Why Small Businesses in Nepal Are Easy Targets for Cyber Attacks", url: "/blog/cyber-security-in-nepal-small-business", readTime: "7 min" },
             { title: "10 Essential Git Commands Every Developer Should Know", url: "/blog/essential-git-commands", readTime: "5 min" }
         ]
     }
