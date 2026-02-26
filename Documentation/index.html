@@ -24,6 +24,7 @@
             <li><a href="#writing-posts">Writing Blog Posts</a></li>
             <li><a href="#components">Key Components</a></li>
             <li><a href="#deployment">Deployment</a></li>
+            <li><a href="#editing-code">How to Edit Code</a></li>
             <li><a href="#updates">Updates & Roadmap</a></li>
         </ul>
     </nav>
@@ -185,9 +186,54 @@ Here is where your Markdown content goes. You can write **bold text**, *italic t
             </div>
         </section>
 
+        <!-- How to Edit Code -->
+        <section id="editing-code" class="doc-section">
+            <h2>8. How to Edit Code</h2>
+            <div class="card">
+                <p>This section provides guided instructions on how to modify dynamic content sections such as Blog
+                    Series and the interactive About page journeys.</p>
+
+                <h3>Managing Blog Series</h3>
+                <p>You can group related blog posts into a numbered series. This automatically links them together at
+                    the bottom of each post.</p>
+                <ol>
+                    <li><strong>Adding to an Existing Series:</strong> Open the <code>.mdx</code> file of your new post.
+                        Add two lines to the frontmatter:
+                        <pre><code>series: "Name of Existing Series"
+seriesPart: 3</code></pre>
+                        Make sure the <code>seriesPart</code> number corresponds to the logical order in the series.
+                    </li>
+                    <li><strong>Creating a New Series:</strong> There is no centralized registry to create a series. You
+                        simply define a new series name in the frontmatter of any post.
+                        <pre><code>series: "My Brand New Series"
+seriesPart: 1</code></pre>
+                        The system will automatically detect the new series, generate an index page for it, and list it
+                        globally.
+                    </li>
+                </ol>
+
+                <h3>Editing "Choose Your Adventure" (About Page)</h3>
+                <p>The interactive journey selector on the About page is driven by a hardcoded configuration object.</p>
+                <ol>
+                    <li>Navigate to <code>src/components/interactive-path-selector.tsx</code>.</li>
+                    <li>Locate the <code>const paths</code> object near the top of the file.</li>
+                    <li>To add a new article to a path (e.g., <code>frontend</code>), simply add an object to the
+                        <code>articles</code> array:
+                        <pre><code>articles: [
+    { title: "New Blog Post", url: "/blog/new-post-slug", readTime: "5 min" },
+    ...
+]</code></pre>
+                    </li>
+                    <li>To add an entirely new journey path, add a new key to the <code>paths</code> object with the
+                        required <code>id</code>, <code>label</code>, <code>icon</code>, <code>color</code>,
+                        <code>bg</code>, <code>description</code>, and <code>articles</code> properties.</li>
+                </ol>
+            </div>
+        </section>
+
         <!-- Updates & Roadmap -->
         <section id="updates" class="doc-section">
-            <h2>8. Current & Future Updates (Roadmap)</h2>
+            <h2>9. Current & Future Updates (Roadmap)</h2>
             <div class="card">
                 <p>This section outlines the current state of <strong>Neo-Blog</strong> and features planned for future
                     releases. We believe in continuous improvement to deliver the best possible experience.</p>
