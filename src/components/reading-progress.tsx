@@ -14,8 +14,8 @@ export function ReadingProgress() {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-violet-500 z-[100] origin-left"
-            style={{ scaleX }}
+            className="fixed top-0 left-0 right-0 h-0.5 z-[100] origin-left"
+            style={{ scaleX, backgroundColor: 'var(--editorial-accent)' }}
         />
     );
 }

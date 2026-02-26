@@ -17,22 +17,23 @@ export function SeriesNavigation({ seriesName, seriesPosts, currentSlug }: Serie
     const nextPost = currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : null;
 
     return (
-        <div className="bg-muted/30 border border-border/50 rounded-2xl p-6 my-10 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-500 to-violet-500" />
+        <div className="bg-muted/20 border border-border/50 rounded-2xl p-6 my-10 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-1 h-full" style={{ backgroundColor: 'var(--editorial-accent)' }} />
 
             <div className="flex items-start gap-4 mb-4">
                 <div className="p-2 bg-background border border-border/50 rounded-xl shrink-0">
-                    <BookMarked className="w-5 h-5 text-cyan-400" />
+                    <BookMarked className="w-5 h-5" style={{ color: 'var(--editorial-accent)' }} />
                 </div>
                 <div>
-                    <h4 className="font-bold text-lg leading-tight mb-1">
+                    <h4 className="font-bold text-lg leading-tight mb-1 font-serif">
                         Series: <span className="text-foreground">{seriesName}</span>
                     </h4>
                     <p className="text-sm text-muted-foreground flex items-center gap-2">
                         Part {currentPart} of {seriesPosts.length}
                         <Link
                             href={`/series/${seriesName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                            className="text-cyan-400 hover:text-cyan-300 hover:underline inline-flex items-center"
+                            className="hover:underline inline-flex items-center"
+                            style={{ color: 'var(--editorial-accent)' }}
                         >
                             View all parts
                         </Link>
@@ -44,7 +45,7 @@ export function SeriesNavigation({ seriesName, seriesPosts, currentSlug }: Serie
                 {prevPost ? (
                     <Link
                         href={`/blog/${prevPost.slug}`}
-                        className="flex flex-col p-4 rounded-xl bg-background border border-border/50 hover:border-cyan-500/50 hover:bg-muted/50 transition-all group/link"
+                        className="flex flex-col p-4 rounded-xl bg-background border border-border/50 hover:border-editorial-accent/50 hover:bg-muted/50 transition-all group/link"
                     >
                         <span className="text-xs text-muted-foreground mb-1 flex items-center gap-1 uppercase tracking-wider font-semibold">
                             <ChevronLeft className="w-3 h-3 group-hover/link:-translate-x-1 transition-transform" />
@@ -59,7 +60,7 @@ export function SeriesNavigation({ seriesName, seriesPosts, currentSlug }: Serie
                 {nextPost && (
                     <Link
                         href={`/blog/${nextPost.slug}`}
-                        className="flex flex-col text-right p-4 rounded-xl bg-background border border-border/50 hover:border-cyan-500/50 hover:bg-muted/50 transition-all group/link sm:col-start-2"
+                        className="flex flex-col text-right p-4 rounded-xl bg-background border border-border/50 hover:border-editorial-accent/50 hover:bg-muted/50 transition-all group/link sm:col-start-2"
                     >
                         <span className="text-xs text-muted-foreground mb-1 flex items-center justify-end gap-1 uppercase tracking-wider font-semibold">
                             Next Part

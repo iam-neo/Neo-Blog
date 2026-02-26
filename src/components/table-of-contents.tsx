@@ -51,7 +51,7 @@ export function TableOfContents({ headings, isMobile = false }: TableOfContentsP
         <nav className={`${isMobile ? "w-full" : "toc-sidebar sticky top-28 w-full"}`}>
             {!isMobile && (
                 <div className="flex items-center gap-2 mb-4 text-sm font-semibold text-foreground">
-                    <List className="w-4 h-4 text-cyan-400" />
+                    <List className="w-4 h-4" style={{ color: 'var(--editorial-accent)' }} />
                     <span>On this page</span>
                 </div>
             )}
@@ -64,8 +64,8 @@ export function TableOfContents({ headings, isMobile = false }: TableOfContentsP
                             className={`
                                 toc-link block text-[13px] leading-relaxed py-1 transition-all duration-200 border-l-2
                                 ${level === 3 ? "pl-5" : "pl-3"}
-                                ${activeId === slug
-                                    ? "text-cyan-400 border-cyan-400 font-medium"
+                                 ${activeId === slug
+                                    ? "font-medium border-editorial-accent"
                                     : "text-muted-foreground hover:text-foreground border-transparent"
                                 }
                             `}

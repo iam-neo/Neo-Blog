@@ -39,7 +39,8 @@ export function getMDXComponents(components: Record<string, React.ComponentType>
         ),
         a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
             <a
-                className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4 transition-colors"
+                className="underline underline-offset-4 transition-colors"
+                style={{ color: 'var(--editorial-accent)' }}
                 target="_blank"
                 rel="noopener noreferrer"
                 {...props}
@@ -56,7 +57,8 @@ export function getMDXComponents(components: Record<string, React.ComponentType>
         ),
         blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => (
             <blockquote
-                className="border-l-4 border-cyan-500/50 pl-4 italic text-muted-foreground my-6 py-1"
+                className="border-l-3 pl-4 italic text-muted-foreground my-6 py-1"
+                style={{ borderColor: 'var(--editorial-accent)' }}
                 {...props}
             />
         ),
