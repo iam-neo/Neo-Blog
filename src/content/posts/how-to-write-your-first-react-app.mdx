@@ -1,0 +1,515 @@
+---
+title: "How to Write Your First React App (Complete Beginner Guide to React & JavaScript)"
+date: "2026-02-26"
+excerpt: "If you know basic HTML and want to move into modern web development, React is one of the best places to start. Build your first React app step by step."
+tags: ["react", "javascript", "web-dev", "tutorial", "beginner"]
+coverImage: "/images/blog/covers/react-tailwind.png"
+series: "React Mastery"
+seriesPart: 1
+---
+
+# How to Write Your First React App (Complete Beginner Guide to React & JavaScript)
+
+If you know basic HTML and want to move into modern web development, React is one of the best places to start.
+
+In this guide, you’ll build your **first React app step by step**. No unnecessary jargon. No skipped steps. Just clear explanations and practical examples.
+
+By the end, you’ll:
+
+* Understand what React is
+* Create a real React app using Vite
+* Build a component
+* Add state
+* Style it properly
+
+Let’s start from zero.
+
+---
+
+# What is React?
+
+![React Logo](https://upload.wikimedia.org/wikipedia/commons/3/30/React_Logo_SVG.svg)
+
+![Structure of React Components](https://d14lhgoyljo1xt.cloudfront.net/assets/caa38bdc6a_the-basic-structure-of-react-components.webp)
+
+![React Overview](https://miro.medium.com/0%2A_C52yYMRTDuMtdBA)
+
+![Virtual DOM Concept](https://s3.amazonaws.com/angularminds.com/blog/media/Virtual%20DOM%20Working%20Cycle-20240802105003680.png)
+
+**React** is a JavaScript library used to build user interfaces (UI).
+
+Instead of writing huge HTML files manually, React lets you build your UI using **small reusable pieces called components**.
+
+Think of it like Lego blocks:
+
+* Header = one block
+* Button = one block
+* Card = one block
+* Footer = one block
+
+You combine them to build an entire website.
+
+React was created by Facebook (now Meta) and is widely used in modern web applications.
+
+---
+
+# Why React is Popular
+
+React is popular for several reasons:
+
+### 1. Component-Based Structure
+You write small pieces and reuse them.
+
+### 2. Fast Performance
+React uses something called the **Virtual DOM**, which makes updates efficient.
+
+### 3. Large Community
+If you get stuck, thousands of developers have likely faced the same issue.
+
+### 4. Job Demand
+React is one of the most in-demand frontend skills globally.
+
+---
+
+# Where React Is Used
+
+React is used in major platforms such as:
+
+* Facebook
+* Instagram
+* Netflix
+* Airbnb
+* Shopify
+
+If you want to build:
+
+* Dashboards
+* E-commerce sites
+* Admin panels
+* Interactive web apps
+
+React is a solid choice.
+
+---
+
+# Prerequisites
+
+Before jumping into React, you need basic knowledge of:
+
+### 1. Basic HTML
+
+You should understand:
+
+* `<div>`
+* `<h1>`
+* `<p>`
+* `<button>`
+
+### 2. Basic JavaScript Concepts
+
+You must understand:
+
+**Variables**
+
+```js
+let name = "John";
+```
+
+**Functions**
+
+```js
+function greet() {
+  return "Hello";
+}
+```
+
+If JavaScript feels confusing, stop and strengthen it first. React is built on JavaScript. Skipping JS basics will slow you down later.
+
+### 3. Install Node.js
+
+React apps run using Node.js tools. You don’t write backend code here, but Node is required to run React locally.
+
+---
+
+# Step 1: Install Node.js
+
+![Node.js Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png)
+
+![Node.js Download](https://journaldev.nyc3.cdn.digitaloceanspaces.com/2015/03/Node.js-Download-Options-403x450.png)
+
+![Node.js Installer](https://i.sstatic.net/TwhHI.png)
+
+![Node.js Windows](https://courses.cs.washington.edu/courses/cse154/23su/resources/assets/node/windows/img/nodeInstallStart.png)
+
+### What is Node.js?
+
+Node.js allows you to run JavaScript outside the browser.
+For React, it helps manage packages and run development servers.
+
+### How to Install
+
+1. Go to: [nodejs.org](https://nodejs.org)
+2. Download the **LTS version** (recommended)
+3. Install it like normal software
+4. After installation, open terminal and run:
+
+```bash
+node -v
+```
+
+If you see a version number, you’re ready.
+
+---
+
+# Step 2: Create Your First React App (Using Vite)
+
+We will use **Vite** because it’s modern and faster than create-react-app.
+
+### Create the App
+
+Open terminal and run:
+
+```bash
+npm create vite@latest my-first-react-app
+```
+
+It will ask:
+
+* Select framework → Choose **React**
+* Select variant → Choose **JavaScript**
+
+Then:
+
+```bash
+cd my-first-react-app
+npm install
+npm run dev
+```
+
+You’ll see a local development URL like:
+
+```
+http://localhost:5173
+```
+
+Open it in your browser. Congratulations — your React app is running.
+
+---
+
+# Step 3: Understand the Project Structure
+
+![Project Structure](https://miro.medium.com/1%2ApVSb4NMiwBqN6uLte0zCvQ.png)
+
+![File Tree](https://i.sstatic.net/eHRPf.png)
+
+![JSX Overview](https://fable.io/blog/2022/jsx-react.webp)
+
+![React DOM Diagram](https://miro.medium.com/v2/resize%3Afit%3A1400/1%2AI4l_Z7spPbDKmIUwcV4iwg.png)
+
+Let’s break down important files:
+
+### 1. main.jsx
+
+This is the entry point. It connects React to your HTML.
+
+It looks like this:
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <App />
+)
+```
+
+It renders your `App` component inside the `root` div in `index.html`.
+
+---
+
+### 2. App.jsx
+
+This is your main component.
+
+You will write most beginner code here.
+
+---
+
+### 3. index.html
+
+This contains:
+
+```html
+<div id="root"></div>
+```
+
+React injects your app into this div.
+
+---
+
+# Step 4: Write Your First React Component
+
+## What is a Component?
+
+A component is a reusable piece of UI.
+
+Example: A simple greeting component.
+
+Open `App.jsx` and replace everything with:
+
+```jsx
+function App() {
+  return (
+    <div>
+      <h1>Hello, React!</h1>
+      <p>This is my first React app.</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+Save it. Your browser will automatically update.
+
+---
+
+## What is JSX?
+
+JSX looks like HTML but it’s actually JavaScript.
+
+Example:
+
+```jsx
+<h1>Hello</h1>
+```
+
+Behind the scenes, React converts it into JavaScript.
+
+Important:
+
+* You must return **one parent element**
+* Use `className` instead of `class`
+* Always close tags
+
+Correct:
+
+```jsx
+<img src="image.png" alt="example" />
+```
+
+Wrong:
+
+```jsx
+<img src="image.png">
+```
+
+---
+
+# Step 5: Add State (useState Hook)
+
+React becomes powerful when UI changes dynamically.
+
+We use something called **state**.
+
+### What is State?
+
+State is data that can change.
+
+Example: A counter.
+
+Update `App.jsx`:
+
+```jsx
+import { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>Counter App</h1>
+      <p>Count: {count}</p>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Explanation:
+
+```js
+const [count, setCount] = useState(0);
+```
+
+* `count` = current value
+* `setCount` = function to update value
+* `0` = initial value
+
+When button is clicked:
+
+```js
+setCount(count + 1)
+```
+
+React re-renders automatically.
+
+This is the foundation of interactive apps.
+
+---
+
+# Step 6: Styling Your App
+
+## Method 1: Basic CSS File
+
+Open `App.css` and write:
+
+```css
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+button {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+```
+
+Import it in `App.jsx`:
+
+```js
+import "./App.css";
+```
+
+---
+
+## Method 2: Inline Styling
+
+```jsx
+<h1 style={{ color: "blue", fontSize: "30px" }}>
+  Styled Text
+</h1>
+```
+
+Notice:
+
+* Double curly braces `{{ }}`
+* CSS properties use camelCase
+
+Example:
+
+* `background-color` → `backgroundColor`
+
+---
+
+# Common Beginner Mistakes
+
+Let’s be honest. You will make these.
+
+### 1. Forgetting to Export Component
+
+If you forget:
+
+```js
+export default App;
+```
+
+Your app will break.
+
+---
+
+### 2. Using `class` Instead of `className`
+
+Wrong:
+
+```jsx
+<div class="box"></div>
+```
+
+Correct:
+
+```jsx
+<div className="box"></div>
+```
+
+---
+
+### 3. Not Understanding JSX Rules
+
+You cannot write:
+
+```jsx
+<h1>Hello</h1>
+<p>World</p>
+```
+
+Without wrapping them.
+
+Correct:
+
+```jsx
+<div>
+  <h1>Hello</h1>
+  <p>World</p>
+</div>
+```
+
+Or use `<> </>` (React Fragment).
+
+---
+
+# What to Learn Next
+
+Now you understand the basics.
+
+Next, learn:
+
+* Props (passing data between components)
+* Event handling
+* Conditional rendering
+* Lists and keys
+* React Router
+* API fetching
+* Component folder structure
+
+Don’t jump into advanced topics immediately. Build small projects first.
+
+---
+
+# Build Small Projects
+
+Start with:
+
+* Counter app
+* To-do list
+* Simple calculator
+* Weather app (with API)
+* Basic portfolio site
+
+Small projects build real understanding.
+
+---
+
+# Final Advice
+
+React is not hard. But skipping JavaScript basics makes it hard.
+
+Don’t memorize — understand.
+
+Don’t watch 50 tutorials — build 5 small apps.
+
+Don’t rush to advanced frameworks — master fundamentals first.
+
+You just built your first React app.
+
+Now build another one.
